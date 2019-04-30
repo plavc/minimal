@@ -7,6 +7,8 @@ body {
     display: flex;
     text-align: center;
     flex-direction: column;
+    line-height: 1.4em !important;
+    font-size: 17px !important;
 }
 
 main {
@@ -20,6 +22,7 @@ main {
 
 .copyright {
     margin: 15px 0;
+    font-size: 80%;
 }
 
 /*home page*/
@@ -42,6 +45,12 @@ main {
     width: 10vh;
     height: 10vh;
     border-radius: 50%;
+}
+
+/* content */
+
+main > h1 {
+    font-size: 2rem !important;
 }
 
 /*apply accent colour to links*/
@@ -75,15 +84,26 @@ a:hover {
 }
 
 .item-tag {
+    font-size: 80% !important;
     background-color: var(--accent);
 }
 
 /*navigation bar icons*/
 
 .navbar-icon {
-    font-size: 125%;
+    font-size: 100%;
     display: inline-block !important;
 }
+
+.navbar-icon a:hover {
+    color: #004a55 !important;
+}
+
+.navbar.navbar-default .navbar-nav > li > a {
+    font-size: 90%;
+    cursor: pointer;
+}
+
 
 /*coloured borders at top and bottom of the page*/
 
@@ -97,4 +117,26 @@ footer {
 
 img {
     max-width: 100%;
+}
+
+
+/* Additional item styling */
+
+.list-item-title {
+    padding-bottom: 15px !important;
+}
+
+.list-item-title a {
+    color: #004a55 !important;
+    font-size: 3.4rem !important;
+}
+
+.item-info {
+    text-align: left !important;
+    color: #004a55 !important;
+    font-size: 1.4rem !important;
+}
+
+.item-date {
+    font-size: 1.4rem !important;
 }

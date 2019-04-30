@@ -11,7 +11,25 @@
         <h2>{{ markdownify .Site.Params.Description }}</h2>
 
     </div>
+           <div class="recent-posts section" style="display:none">
+               <div class="posts">
+                   {{- $.Scratch.Set "counter" 0 -}}
+                   {{- range .Data.Pages -}}
+                   {{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
+                   {{- else -}}
+                   {{- if lt ($.Scratch.Get "counter") (.Site.Params.RecentPostsCount | default 10) -}}
 
+                   {{ partial "list-item-simple" . }}
+
+                   {{- $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) -}}
+                   {{- end -}}
+                   {{- end -}}
+                   {{- end -}}
+   
+                   <br/>
+                   <a href="/posts">All posts →</a>
+               </div>
+           </div>
 </main>
 
 {{ partial "footer" . }}
