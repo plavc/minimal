@@ -3,5 +3,22 @@
                 <p class="copyright text-muted">{{ .Site.Params.copyright | default "&copy; All rights reserved. Powered by [Hugo](https://gohugo.io) and [Minimal](https://github.com/calintat/minimal)" | markdownify }}</p>
             </footer>
         </div>
+
+        <!-- highlight.js -->
+        {{ if .Site.Params.highlight | default false }}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+        {{ range .Site.Params.highlightLanguages }} <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/{{ . }}.min.js"></script> {{ end }}
+        <script>hljs.initHighlightingOnLoad();</script>
+        {{ end }}
+
+        {{ range .Site.Params.js }} <script src="{{ . | absURL }}"></script> {{ end }}
+        <script src="{{ "js/flowchart.min.js" | absURL }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+
+        <link href="{{"mermaid/mermaid.css" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}" type="text/css" rel="stylesheet" />
+        <script src="{{"mermaid/mermaid.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
     </body>
 </html>

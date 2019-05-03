@@ -10,3 +10,5 @@ min_version = "0.24.1"
 [author]
   name = "Calin Tataru"
   homepage = "https://calintat.github.io/"
+
+features = ["mermaid", "netifly-badge"]
