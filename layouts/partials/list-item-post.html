@@ -1,4 +1,4 @@
-<div class="item" style="text-align: left;">
+<div class="item">
 
     {{ $.Scratch.Set "link" .RelPermalink }}
     {{ with .Params.repo }}
@@ -15,6 +15,19 @@
 
     {{ with .Description }} {{ $.Scratch.Set "subtitle" . }} {{ end }}
 
-    <h4><a href="{{ .Scratch.Get "link" }}">{{ .Title }}</a></h4>
+    
+    <h4>
+        <a style="color: #004a55;" href="{{ .Scratch.Get "link" }}">{{ .Title }}</a>
+    </h4>
+    <h5>
+        {{ $.Scratch.Get "subtitle" }} &middot; 
+        <span style="font-size: 80%; font-weight: bold; color: #000;">{{ dateFormat "January 2, 2006" .Date }}</span>
+    </h5>
+    
+    <!--<div class="item-date">{{ dateFormat "January 2, 2006" .Date }}</div>-->
+    
+    {{ range .Params.tags }}
+    <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}"><kbd class="item-tag">{{ . }}</kbd></a>
+    {{ end }}
 
 </div>

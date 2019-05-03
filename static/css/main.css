@@ -1,14 +1,25 @@
+:root {
+    --primary: #004a55;
+}
+
+
 html, body {
     height: 100%;
 }
 
 body {
-    padding-top: 55px;
+    padding-top: 50px;
     display: flex;
     text-align: center;
     flex-direction: column;
     line-height: 1.4em !important;
     font-size: 17px !important;
+    overflow: hidden;
+}
+
+.main-content {
+    overflow: auto;
+    height: 100%;
 }
 
 main {
@@ -16,6 +27,16 @@ main {
     padding: 25px;
     flex: 1 0 auto;
     max-width: 750px;
+}
+
+main img {
+    border: solid 1px #eeeeee;
+    padding: 8px;
+}
+
+.highlight > pre {
+    border-radius: 0;
+    border: solid 1px #eeeeee;
 }
 
 /*footer*/
@@ -28,20 +49,26 @@ main {
 /*home page*/
 
 .intro {
-    transform: translateY(22vh);
+    position: relative;
+    height: 100%;
 }
 
-.intro > h1 {
+.intro-content {
+    transform: translateY(22vh);
+    position: relative;
+}
+
+.intro-content > h1 {
     color: #212121;
     font-size: 12vh;
 }
 
-.intro > h2 {
+.intro-content > h2 {
     color: #757575;
     font-size: 3vmin;
 }
 
-.intro > .profile {
+.intro-content > .profile {
     width: 10vh;
     height: 10vh;
     border-radius: 50%;
@@ -56,7 +83,7 @@ main > h1 {
 /*apply accent colour to links*/
 
 a:link, a:visited {
-    color: var(--accent);
+    color: var(--primary);
 }
 
 a.icon:hover {
@@ -64,7 +91,7 @@ a.icon:hover {
 }
 
 a:hover {
-    color: var(--accent) !important;
+    color: var(--primary) !important;
 }
 
 /*paginator at bottom of list view*/
@@ -90,13 +117,15 @@ a:hover {
 
 /*navigation bar icons*/
 
+
+
 .navbar-icon {
     font-size: 100%;
     display: inline-block !important;
 }
 
 .navbar-icon a:hover {
-    color: #004a55 !important;
+    color: var(--primary) !important;
 }
 
 .navbar.navbar-default .navbar-nav > li > a {
@@ -104,6 +133,10 @@ a:hover {
     cursor: pointer;
 }
 
+.navbar.navbar-default {
+    background-color: #ffffff;
+    border-bottom: 0.01em solid #ebebeb;
+}
 
 /*coloured borders at top and bottom of the page*/
 
@@ -139,4 +172,30 @@ img {
 
 .item-date {
     font-size: 1.4rem !important;
+}
+
+
+.text > h1 {
+    font-size: 2.6rem;
+    padding-bottom: 2.4rem;
+}
+
+.text > h2 {
+    font-size: 2.2rem;
+    padding-bottom: 1.6rem;
+}
+
+.text h3 {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.text h4 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.text h5 {
+    font-size: 1.4rem;
+    text-decoration: underline;
 }
