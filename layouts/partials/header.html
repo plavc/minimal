@@ -4,9 +4,9 @@
         {{ partial "head-open" . }}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="og:title" content="{{ .Title }}">
-        <meta name="og:description" content="{{ .Description }}">
-        <meta name="og:image" content="{{ .Site.Params.metaImage | absURL }}" />
+        <meta property="og:title" content="{{ .Title }}">
+        <meta property="og:description" content="{{ .Description }}">
+        <meta property="og:image" content="{{ .Site.Params.metaImage | absURL }}" />
         
         <title>{{ .Title }}</title>
         {{ if .Site.Params.favicon }}
