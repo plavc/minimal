@@ -2,11 +2,22 @@
 
 <main>
 
-    {{ partial "list-item" . }}
+    {{ partial "_header-links" . }}
 
-    <br> <div class="text text-justify">{{ .Content }}</div>
-
-
+    <article>
+        <header>
+            <div class="published">{{ dateFormat .Site.Params.dateformat .Date }}</div>
+            <h1><a href="{{ .Scratch.Get "link" }}">{{ .Title }}</a></h1>
+            <div class="description">{{ .Description }}</div>
+            <nav class="tags">
+                {{ range .Params.tags }}
+                <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}"><kbd class="item-tag">{{ . }}</kbd></a>
+                {{ end }}
+            </nav>
+            <div class="reading-info">{{ .ReadingTime }} min read &middot; {{ .WordCount }} words</div>
+        </header>
+        {{ .Content }}
+    </article>
 
     <!-- related posts with the same tags -->
     {{ $related := first 3 (where (where (where .Site.Pages.ByDate.Reverse ".Type" "==" "post") ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}

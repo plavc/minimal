@@ -6,8 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="{{ .Title }}">
         <meta property="og:description" content="{{ .Description }}">
-        <meta property="og:image" content="{{ .Site.Params.metaImage | absURL }}" />
-        
+        {{ if eq .Type "posts" }}
+        <meta property='og:type' content='article' />
+        <meta property='article:author' content='{{ .Site.Params.author }}' />
+        {{ end }}
+
         <title>{{ .Title }}</title>
         {{ if .Site.Params.favicon }}
         <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
